@@ -1,0 +1,5 @@
+if you want to build this project write this at terminal
+
+cmake -B build
+cmake --build build
+build\MyProject.exe
