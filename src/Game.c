@@ -15,7 +15,7 @@ Uint64 nextFrame = 0;
 void Start(SDL_Renderer* renderer){
     currentFrame = SDL_GetPerformanceCounter();
     SaveTextures(renderer);
-    
+    CreateWorld();
     PlayerStart();
 }
 

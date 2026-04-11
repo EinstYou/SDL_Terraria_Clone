@@ -5,6 +5,9 @@
 #include <SDL3/SDL.h>
 
 
+
+extern SDL_FRect worldTiles[450];
+void CreateWorld();
 void RenderWorld(SDL_Renderer* renderer);
 
 
