@@ -8,7 +8,7 @@
 
 
 
-void PlayerStart(SDL_Renderer* renderer);
+void PlayerStart();
 void PlayerEvent(SDL_Event* event);
 void PlayerMove(float deltatime);
 void PlayerRender(SDL_Renderer* renderer);

@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "Player.h"
 #include "Texture.h"
+#include "World.h"
 
 
 double deltaTime = 0;
@@ -13,7 +14,9 @@ Uint64 nextFrame = 0;
 
 void Start(SDL_Renderer* renderer){
     currentFrame = SDL_GetPerformanceCounter();
-    PlayerStart(renderer);
+    SaveTextures(renderer);
+    
+    PlayerStart();
 }
 
 
@@ -36,6 +39,7 @@ void Render(SDL_Renderer* renderer){
 
     //Draw Here
     PlayerRender(renderer);
+    RenderWorld(renderer);
     SDL_RenderPresent(renderer);
 }
 

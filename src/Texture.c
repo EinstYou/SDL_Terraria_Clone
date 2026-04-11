@@ -1,5 +1,9 @@
 #include "Texture.h"
 
+
+SDL_Texture* blockTextures[TEXTURE_COUNT];
+
+
 SDL_Texture* CreateTexture(SDL_Renderer* renderer, const char* file){
     SDL_Surface* surface = IMG_Load(file);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -9,4 +13,6 @@ SDL_Texture* CreateTexture(SDL_Renderer* renderer, const char* file){
 }
 
 
-
+ void SaveTextures(SDL_Renderer* renderer){
+    blockTextures[TEXTURE_DIRT] = CreateTexture(renderer, "assets/Tile.png");
+ }

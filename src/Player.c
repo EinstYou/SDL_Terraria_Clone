@@ -5,17 +5,17 @@
 
 PhysicalObject player;
 Vector2 direction;
-SDL_Texture* texture;
 float speed = 300;
 float gravity = 2000;
 float jumpForce = 500;
 float velocityY = 0;
 
+
+
 bool isGrounded = false;
 
 
-void PlayerStart(SDL_Renderer* renderer){
-    texture = CreateTexture(renderer, "assets/PlayerS.png");
+void PlayerStart(){
     player.transform = (SDL_FRect){0, 0, 50, 50};
 }
 
@@ -42,7 +42,7 @@ void PlayerMove(float deltatime){
 }
 
 void PlayerRender(SDL_Renderer* renderer){
-    SDL_RenderTexture(renderer, texture, NULL, &player.transform);
+    SDL_RenderTexture(renderer, blockTextures[TEXTURE_DIRT], NULL, &player.transform);
 }
 
 

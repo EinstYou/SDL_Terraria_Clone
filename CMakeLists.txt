@@ -18,6 +18,7 @@ src/Game.c
 src/Input.c
 src/Texture.c
 src/Player.c
+src/World.c
 )
 
 target_include_directories(Terraria PUBLIC headers)

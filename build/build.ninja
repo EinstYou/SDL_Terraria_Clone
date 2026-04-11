@@ -86,6 +86,13 @@ build CMakeFiles/Terraria.dir/src/Player.c.obj: C_COMPILER__Terraria_unscanned_ 
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
+build CMakeFiles/Terraria.dir/src/World.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/World.c || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\World.c.obj.d
+  INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
+  OBJECT_DIR = CMakeFiles\Terraria.dir
+  OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
+  TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Terraria
@@ -94,7 +101,7 @@ build CMakeFiles/Terraria.dir/src/Player.c.obj: C_COMPILER__Terraria_unscanned_ 
 #############################################
 # Link the executable Terraria.exe
 
-build Terraria.exe: C_EXECUTABLE_LINKER__Terraria_ CMakeFiles/Terraria.dir/src/main.c.obj CMakeFiles/Terraria.dir/src/Physics.c.obj CMakeFiles/Terraria.dir/src/Game.c.obj CMakeFiles/Terraria.dir/src/Input.c.obj CMakeFiles/Terraria.dir/src/Texture.c.obj CMakeFiles/Terraria.dir/src/Player.c.obj | vendored/SDL_image/libSDL3_image.dll.a vendored/SDL/libSDL3.dll.a C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/src/dynapi/SDL_dynapi.sym || SDL3.dll SDL3_image.dll
+build Terraria.exe: C_EXECUTABLE_LINKER__Terraria_ CMakeFiles/Terraria.dir/src/main.c.obj CMakeFiles/Terraria.dir/src/Physics.c.obj CMakeFiles/Terraria.dir/src/Game.c.obj CMakeFiles/Terraria.dir/src/Input.c.obj CMakeFiles/Terraria.dir/src/Texture.c.obj CMakeFiles/Terraria.dir/src/Player.c.obj CMakeFiles/Terraria.dir/src/World.c.obj | vendored/SDL_image/libSDL3_image.dll.a vendored/SDL/libSDL3.dll.a C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/src/dynapi/SDL_dynapi.sym || SDL3.dll SDL3_image.dll
   LINK_LIBRARIES = vendored/SDL_image/libSDL3_image.dll.a  vendored/SDL/libSDL3.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Terraria.dir
   POST_BUILD = cd .
