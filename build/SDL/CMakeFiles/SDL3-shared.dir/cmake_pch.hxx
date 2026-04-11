@@ -2,5 +2,5 @@
 
 #pragma GCC system_header
 #ifdef __cplusplus
-#include "C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDLProject/SDL/src/SDL_internal.h"
+#include "C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/SDL/src/SDL_internal.h"
 #endif // __cplusplus

@@ -50,7 +50,7 @@ unset(_cmake_expected_targets)
 add_library(SDL3::Headers INTERFACE IMPORTED)
 
 set_target_properties(SDL3::Headers PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDLProject/build/SDL/include-revision;C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDLProject/SDL/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/SDL/include-revision;C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/SDL/include"
 )
 
 # This file does not depend on other imported targets which have

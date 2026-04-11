@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDLProject/SDL_image
+# Install script for directory: C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/SDL_image
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/MyProject")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Terraria")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,6 +40,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDLProject/build/SDL_image/install_local_manifest.txt"
+  file(WRITE "C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/SDL_image/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
