@@ -18,5 +18,7 @@ typedef struct PhysicalObject{
 
 Vector2 NormalizeVector(Vector2 vector);
 
+bool IsColliding(SDL_FRect r1, SDL_FRect r2);
+
 
 #endif

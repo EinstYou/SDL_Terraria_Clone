@@ -3,7 +3,7 @@
 #include <SDL3/SDL.h>
 
 
-void CalculateDeltaTime();
+extern double deltaTime;
 
 void GetInputs(SDL_Event* event);
 

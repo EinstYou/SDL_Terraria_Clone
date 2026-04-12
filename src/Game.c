@@ -8,12 +8,9 @@
 
 
 double deltaTime = 0;
-Uint64 currentFrame = 0;
-Uint64 nextFrame = 0;
 
 
 void Start(SDL_Renderer* renderer){
-    currentFrame = SDL_GetPerformanceCounter();
     SaveTextures(renderer);
     CreateWorld();
     PlayerStart();
@@ -25,7 +22,6 @@ void GetInputs(SDL_Event* event){
 }
 
 void Update(){
-    CalculateDeltaTime();
     printf("FPS: %d\n", (int)(1/deltaTime));
     PlayerMove(deltaTime);
 }
@@ -41,10 +37,4 @@ void Render(SDL_Renderer* renderer){
     PlayerRender(renderer);
     RenderWorld(renderer);
     SDL_RenderPresent(renderer);
-}
-
-void CalculateDeltaTime() {
-    nextFrame = (double)SDL_GetPerformanceCounter();
-    deltaTime = (double)(nextFrame - currentFrame) / (double)SDL_GetPerformanceFrequency();
-    currentFrame = nextFrame;
 }

@@ -3,7 +3,8 @@
 #include <SDL3/SDL_main.h>
 #include "Game.h"
 
-
+Uint64 frameEnd = 0;
+Uint64 frameBegin = 0;
 
 int main(int argc, char *argv[]) {
 
@@ -26,17 +27,20 @@ int main(int argc, char *argv[]) {
 
     bool running = true;
     Start(renderer);
+    frameBegin = SDL_GetPerformanceCounter();
     while(running){
+        frameEnd = SDL_GetPerformanceCounter();
+        deltaTime = ((double)frameEnd - (double)frameBegin) / (double)SDL_GetPerformanceFrequency();
+        frameBegin = frameEnd;
         SDL_Event e;
-        while(SDL_PollEvent(&e)){
-            if(e.type == SDL_EVENT_QUIT) running = false;
-            GetInputs(&e);
+        SDL_PollEvent(&e);
+        if(e.type == SDL_EVENT_QUIT) running = false;
+        GetInputs(&e);
             
-        }
-
+        
         Update();
         Render(renderer);
-        SDL_Delay(1);
+        
     }
 
 

@@ -2,6 +2,7 @@
 #include "Physics.h"
 #include "Texture.h"
 #include "Input.h"
+#include "World.h"
 
 PhysicalObject player;
 Vector2 direction;
@@ -9,6 +10,7 @@ float speed = 300;
 float gravity = 2000;
 float jumpForce = 500;
 float velocityY = 0;
+float velocityX = 0;
 
 
 
@@ -30,19 +32,28 @@ void PlayerEvent(SDL_Event* event){
 }
 
 void PlayerMove(float deltatime){
+    float playerOldX = player.transform.x;
+    float playerOldY = player.transform.y;
+
+
     velocityY += gravity * deltatime;
-    player.transform.x += speed * deltatime * direction.x;
-    player.transform.y += velocityY * deltatime;
-    if(player.transform.y + player.transform.h >= 480){
-        player.transform.y = 480 - player.transform.h;
-        isGrounded = true;
-        velocityY = 0;
+    velocityX = speed;
+
+    for(int i = 0; i < sizeof(worldTiles) / sizeof(SDL_FRect); i++){
+        if(IsColliding(player.transform, worldTiles[i])){
+            player.transform.y = playerOldY;
+            player.transform.x = playerOldX;
+            velocityY = 0;
+            velocityX = 0;
+        }
     }
     
+    player.transform.x += speed * deltatime * direction.x;
+    player.transform.y += velocityY * deltatime;
 }
 
 void PlayerRender(SDL_Renderer* renderer){
-    SDL_RenderTexture(renderer, blockTextures[TEXTURE_DIRT], NULL, &player.transform);
+    SDL_RenderTexture(renderer, blockTextures[TEXTURE_PLAYER], NULL, &player.transform);
 }
 
 

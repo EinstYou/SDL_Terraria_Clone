@@ -7,6 +7,7 @@
 
 typedef enum Blocks{
     TEXTURE_DIRT,
+    TEXTURE_PLAYER,
     TEXTURE_COUNT
 }Blocks;
 
