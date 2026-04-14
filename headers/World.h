@@ -6,7 +6,7 @@
 
 
 
-extern SDL_FRect worldTiles[450];
+extern SDL_FRect worldTiles[10000];
 void CreateWorld();
 void RenderWorld(SDL_Renderer* renderer);
 

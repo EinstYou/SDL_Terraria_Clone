@@ -7,6 +7,9 @@
 #include "Physics.h"
 
 
+extern PhysicalObject player;
+
+
 
 void PlayerStart();
 void PlayerEvent(SDL_Event* event);

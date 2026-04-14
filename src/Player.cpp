@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Input.h"
 #include "World.h"
+#include "Camera.h"
 
 PhysicalObject player;
 Vector2 direction;
@@ -18,12 +19,12 @@ bool isGrounded = false;
 
 
 void PlayerStart(){
-    player.transform = (SDL_FRect){0, 0, 50, 50};
+    player.transform = {0, 0, 32, 32};
 }
 
 
 void PlayerEvent(SDL_Event* event){
-    direction = (Vector2) {InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A), InputDirection(SDL_SCANCODE_S, SDL_SCANCODE_W)};
+    direction = {InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A), InputDirection(SDL_SCANCODE_S, SDL_SCANCODE_W)};
     direction = NormalizeVector(direction);
     if(event->type == SDL_EVENT_KEY_DOWN && event->key.scancode == SDL_SCANCODE_SPACE && isGrounded){
         velocityY = -jumpForce;
@@ -31,29 +32,32 @@ void PlayerEvent(SDL_Event* event){
     }
 }
 
-void PlayerMove(float deltatime){
-    float playerOldX = player.transform.x;
-    float playerOldY = player.transform.y;
-
-
+void PlayerMove(float deltatime) {
     velocityY += gravity * deltatime;
     velocityX = speed;
 
+    float playerOldX = player.transform.x;
+    player.transform.x += speed * deltatime * direction.x;
     for(int i = 0; i < sizeof(worldTiles) / sizeof(SDL_FRect); i++){
         if(IsColliding(player.transform, worldTiles[i])){
-            player.transform.y = playerOldY;
             player.transform.x = playerOldX;
-            velocityY = 0;
             velocityX = 0;
         }
     }
-    
-    player.transform.x += speed * deltatime * direction.x;
+
+    float playerOldY = player.transform.y;
     player.transform.y += velocityY * deltatime;
+    for(int i = 0; i < sizeof(worldTiles) / sizeof(SDL_FRect); i++){
+        if(IsColliding(player.transform, worldTiles[i])){
+            player.transform.y = playerOldY;
+            velocityY = 0;
+            isGrounded = true;
+        }
+    }
 }
 
 void PlayerRender(SDL_Renderer* renderer){
-    SDL_RenderTexture(renderer, blockTextures[TEXTURE_PLAYER], NULL, &player.transform);
+    RenderTextureWithCamera(renderer, blockTextures[TEXTURE_PLAYER], player.transform);
 }
 
 

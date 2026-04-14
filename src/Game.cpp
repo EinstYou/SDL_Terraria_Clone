@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Texture.h"
 #include "World.h"
+#include "Camera.h"
 
 
 double deltaTime = 0;
@@ -22,8 +23,8 @@ void GetInputs(SDL_Event* event){
 }
 
 void Update(){
-    printf("FPS: %d\n", (int)(1/deltaTime));
     PlayerMove(deltaTime);
+    CameraMovement();
 }
 
 

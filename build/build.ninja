@@ -44,50 +44,57 @@ cmake_ninja_workdir = C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terrari
 
 build cmake_object_order_depends_target_Terraria: phony || cmake_object_order_depends_target_SDL3-shared cmake_object_order_depends_target_SDL3_image-shared
 
-build CMakeFiles/Terraria.dir/src/main.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/main.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\main.c.obj.d
+build CMakeFiles/Terraria.dir/src/main.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/main.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\main.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
-build CMakeFiles/Terraria.dir/src/Physics.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Physics.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\Physics.c.obj.d
+build CMakeFiles/Terraria.dir/src/Physics.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Physics.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\Physics.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
-build CMakeFiles/Terraria.dir/src/Game.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Game.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\Game.c.obj.d
+build CMakeFiles/Terraria.dir/src/Game.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Game.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\Game.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
-build CMakeFiles/Terraria.dir/src/Input.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Input.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\Input.c.obj.d
+build CMakeFiles/Terraria.dir/src/Input.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Input.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\Input.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
-build CMakeFiles/Terraria.dir/src/Texture.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Texture.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\Texture.c.obj.d
+build CMakeFiles/Terraria.dir/src/Texture.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Texture.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\Texture.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
-build CMakeFiles/Terraria.dir/src/Player.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Player.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\Player.c.obj.d
+build CMakeFiles/Terraria.dir/src/Player.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Player.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\Player.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
   TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
 
-build CMakeFiles/Terraria.dir/src/World.c.obj: C_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/World.c || cmake_object_order_depends_target_Terraria
-  DEP_FILE = CMakeFiles\Terraria.dir\src\World.c.obj.d
+build CMakeFiles/Terraria.dir/src/World.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/World.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\World.cpp.obj.d
+  INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
+  OBJECT_DIR = CMakeFiles\Terraria.dir
+  OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
+  TARGET_SUPPORT_DIR = CMakeFiles\Terraria.dir
+
+build CMakeFiles/Terraria.dir/src/Camera.cpp.obj: CXX_COMPILER__Terraria_unscanned_ C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/src/Camera.cpp || cmake_object_order_depends_target_Terraria
+  DEP_FILE = CMakeFiles\Terraria.dir\src\Camera.cpp.obj.d
   INCLUDES = -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/headers -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/include-revision -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/include -IC:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL_image/include
   OBJECT_DIR = CMakeFiles\Terraria.dir
   OBJECT_FILE_DIR = CMakeFiles\Terraria.dir\src
@@ -101,7 +108,7 @@ build CMakeFiles/Terraria.dir/src/World.c.obj: C_COMPILER__Terraria_unscanned_ C
 #############################################
 # Link the executable Terraria.exe
 
-build Terraria.exe: C_EXECUTABLE_LINKER__Terraria_ CMakeFiles/Terraria.dir/src/main.c.obj CMakeFiles/Terraria.dir/src/Physics.c.obj CMakeFiles/Terraria.dir/src/Game.c.obj CMakeFiles/Terraria.dir/src/Input.c.obj CMakeFiles/Terraria.dir/src/Texture.c.obj CMakeFiles/Terraria.dir/src/Player.c.obj CMakeFiles/Terraria.dir/src/World.c.obj | vendored/SDL_image/libSDL3_image.dll.a vendored/SDL/libSDL3.dll.a C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/src/dynapi/SDL_dynapi.sym || SDL3.dll SDL3_image.dll
+build Terraria.exe: CXX_EXECUTABLE_LINKER__Terraria_ CMakeFiles/Terraria.dir/src/main.cpp.obj CMakeFiles/Terraria.dir/src/Physics.cpp.obj CMakeFiles/Terraria.dir/src/Game.cpp.obj CMakeFiles/Terraria.dir/src/Input.cpp.obj CMakeFiles/Terraria.dir/src/Texture.cpp.obj CMakeFiles/Terraria.dir/src/Player.cpp.obj CMakeFiles/Terraria.dir/src/World.cpp.obj CMakeFiles/Terraria.dir/src/Camera.cpp.obj | vendored/SDL_image/libSDL3_image.dll.a vendored/SDL/libSDL3.dll.a C$:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/vendored/SDL/src/dynapi/SDL_dynapi.sym || SDL3.dll SDL3_image.dll
   LINK_LIBRARIES = vendored/SDL_image/libSDL3_image.dll.a  vendored/SDL/libSDL3.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Terraria.dir
   POST_BUILD = cd .

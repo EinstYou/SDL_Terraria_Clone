@@ -12,13 +12,14 @@ add_subdirectory(vendored/SDL_image EXCLUDE_FROM_ALL)
 
 
 add_executable(Terraria
-src/main.c
-src/Physics.c
-src/Game.c
-src/Input.c
-src/Texture.c
-src/Player.c
-src/World.c
+src/main.cpp
+src/Physics.cpp
+src/Game.cpp
+src/Input.cpp
+src/Texture.cpp
+src/Player.cpp
+src/World.cpp
+src/Camera.cpp
 )
 
 target_include_directories(Terraria PUBLIC headers)
