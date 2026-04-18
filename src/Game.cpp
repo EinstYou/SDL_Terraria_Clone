@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <Physics.h>
-#include <stdio.h>
+#include <iostream>
+#include <ctime>
 #include "Input.h"
 #include "Player.h"
 #include "Texture.h"
@@ -15,6 +16,7 @@ void Start(SDL_Renderer* renderer){
     SaveTextures(renderer);
     CreateWorld();
     PlayerStart();
+    srand(time(NULL));
 }
 
 

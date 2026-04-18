@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "World.h"
 #include "Camera.h"
+#include "vector"
 
 PhysicalObject player;
 Vector2 direction;
@@ -19,7 +20,7 @@ bool isGrounded = false;
 
 
 void PlayerStart(){
-    player.transform = {0, 0, 32, 32};
+    player.transform = {100, 0, 32, 32};
 }
 
 
@@ -38,7 +39,7 @@ void PlayerMove(float deltatime) {
 
     float playerOldX = player.transform.x;
     player.transform.x += speed * deltatime * direction.x;
-    for(int i = 0; i < sizeof(worldTiles) / sizeof(SDL_FRect); i++){
+    for(int i = 0; i < worldTiles.size(); i++){
         if(IsColliding(player.transform, worldTiles[i])){
             player.transform.x = playerOldX;
             velocityX = 0;
@@ -47,7 +48,7 @@ void PlayerMove(float deltatime) {
 
     float playerOldY = player.transform.y;
     player.transform.y += velocityY * deltatime;
-    for(int i = 0; i < sizeof(worldTiles) / sizeof(SDL_FRect); i++){
+    for(int i = 0; i < worldTiles.size(); i++){
         if(IsColliding(player.transform, worldTiles[i])){
             player.transform.y = playerOldY;
             velocityY = 0;

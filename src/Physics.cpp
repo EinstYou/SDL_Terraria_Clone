@@ -1,5 +1,6 @@
 #include "Physics.h"
 #include <math.h>
+#include <cstdlib>
 
 
 Vector2 NormalizeVector(Vector2 vector){
@@ -29,4 +30,10 @@ bool IsColliding(SDL_FRect r1, SDL_FRect r2){
 
 float GetOrigin(float position, float size){
     return (position * 2 + size) / 2;
+}
+
+
+
+int RandomNumberGenerator(int min, int max) {
+    return rand() % (max + 1 - min) + min;
 }

@@ -3,10 +3,11 @@
 
 
 #include <SDL3/SDL.h>
+#include <vector>
 
 
 
-extern SDL_FRect worldTiles[10000];
+extern std::vector<SDL_FRect> worldTiles;
 void CreateWorld();
 void RenderWorld(SDL_Renderer* renderer);
 

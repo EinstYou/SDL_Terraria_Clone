@@ -19,4 +19,6 @@ void RenderTextureWithCamera(SDL_Renderer* renderer, SDL_Texture* texture, SDL_F
 void CameraMovement(){
     camera.x = GetOrigin(player.transform.x, player.transform.w) - (camera.w / 2);
     camera.y = GetOrigin(player.transform.y, player.transform.h) - (camera.h / 2);
+    if(camera.x < 0) camera.x = 0;
+    if(camera.y < 0) camera.y = 0;
 }
