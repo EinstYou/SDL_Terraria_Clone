@@ -6,61 +6,59 @@
 #include "Camera.h"
 #include "vector"
 
-PhysicalObject player;
-Vector2 direction;
-float speed = 300;
-float gravity = 2000;
-float jumpForce = 500;
-float velocityY = 0;
-float velocityX = 0;
 
 
 
-bool isGrounded = false;
+Player player;
 
 
 void PlayerStart(){
-    player.transform = {100, 0, 32, 32};
+    player.body.transform = {100, 0, 32, 32};
+    player.body.collision = {player.body.transform.x + 5, player.body.transform.y, 22, 32};
 }
 
 
 void PlayerEvent(SDL_Event* event){
-    direction = {InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A), InputDirection(SDL_SCANCODE_S, SDL_SCANCODE_W)};
-    direction = NormalizeVector(direction);
-    if(event->type == SDL_EVENT_KEY_DOWN && event->key.scancode == SDL_SCANCODE_SPACE && isGrounded){
-        velocityY = -jumpForce;
-        isGrounded = false;
+    player.direction.x = InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
+    if(event->type == SDL_EVENT_KEY_DOWN && event->key.scancode == SDL_SCANCODE_SPACE && player.isGrounded){
+        player.body.velocity.y = -player.jumpForce;
+        player.isGrounded = false;
     }
 }
 
 void PlayerMove(float deltatime) {
-    velocityY += gravity * deltatime;
-    velocityX = speed;
+    player.body.velocity.y += player.gravity * deltatime;
+    player.body.velocity.x = player.speed * player.direction.x;
 
-    float playerOldX = player.transform.x;
-    player.transform.x += speed * deltatime * direction.x;
+
+
+    //I will fix later: Dont use old transforms for colliding
+    SetPlayerTransform({player.body.transform.x + (player.body.velocity.x), player.body.transform.y}, {5, 0});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.transform, worldTiles[i])){
-            player.transform.x = playerOldX;
-            velocityX = 0;
+        if(IsColliding(player.body.collision, worldTiles[i])){
+            player.body.velocity.x = 0;
         }
     }
 
-    float playerOldY = player.transform.y;
-    player.transform.y += velocityY * deltatime;
+    SetPlayerTransform({player.body.transform.x, player.body.transform.y + (player.body.velocity.y)}, {5, 0});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.transform, worldTiles[i])){
-            player.transform.y = playerOldY;
-            velocityY = 0;
-            isGrounded = true;
+        if(IsColliding(player.body.collision, worldTiles[i])){
+            player.body.velocity.y = 0;
+            player.isGrounded = true;
         }
     }
 }
 
 void PlayerRender(SDL_Renderer* renderer){
-    RenderTextureWithCamera(renderer, blockTextures[TEXTURE_PLAYER], player.transform);
+    RenderTextureWithCamera(renderer, blockTextures[TEXTURE_PLAYER], player.body.transform);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    RenderRectWithCamera(renderer, player.body.collision);
 }
 
+void SetPlayerTransform(Vector2 transformPos, Vector2 collisionPos){
+    player.body.transform.x = transformPos.x;
+    player.body.transform.y = transformPos.y;
 
-
-
+    player.body.collision.x = transformPos.x + collisionPos.x;
+    player.body.collision.y = transformPos.y + collisionPos.y;
+}
