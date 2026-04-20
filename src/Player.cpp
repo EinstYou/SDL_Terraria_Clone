@@ -13,8 +13,13 @@ Player player;
 
 
 void PlayerStart(){
-    player.body.transform = {100, 0, 32, 32};
-    player.body.collision = {player.body.transform.x + 5, player.body.transform.y, 22, 32};
+    player.body.transform.w = 32;
+    player.body.transform.h = 32;
+
+    player.body.collision.w = 24;
+    player.body.collision.h = 32;
+    
+    SetPlayerTransform({100, 0});
 }
 
 
@@ -31,18 +36,21 @@ void PlayerMove(float deltatime) {
     player.body.velocity.x = player.speed * player.direction.x;
 
 
-
-    //I will fix later: Dont use old transforms for colliding
-    SetPlayerTransform({player.body.transform.x + (player.body.velocity.x), player.body.transform.y}, {5, 0});
+    const float oldPosX = player.body.transform.x;
+    SetPlayerTransform({player.body.transform.x + (player.body.velocity.x * deltatime), player.body.transform.y});
     for(int i = 0; i < worldTiles.size(); i++){
         if(IsColliding(player.body.collision, worldTiles[i])){
+            SetPlayerTransform({oldPosX, player.body.transform.y});
             player.body.velocity.x = 0;
         }
     }
+    
 
-    SetPlayerTransform({player.body.transform.x, player.body.transform.y + (player.body.velocity.y)}, {5, 0});
+    const float oldPosY = player.body.transform.y;
+    SetPlayerTransform({player.body.transform.x, player.body.transform.y + (player.body.velocity.y * deltatime)});
     for(int i = 0; i < worldTiles.size(); i++){
         if(IsColliding(player.body.collision, worldTiles[i])){
+            SetPlayerTransform({player.body.transform.x, oldPosY});
             player.body.velocity.y = 0;
             player.isGrounded = true;
         }
@@ -55,10 +63,10 @@ void PlayerRender(SDL_Renderer* renderer){
     RenderRectWithCamera(renderer, player.body.collision);
 }
 
-void SetPlayerTransform(Vector2 transformPos, Vector2 collisionPos){
+void SetPlayerTransform(Vector2 transformPos){
     player.body.transform.x = transformPos.x;
     player.body.transform.y = transformPos.y;
 
-    player.body.collision.x = transformPos.x + collisionPos.x;
-    player.body.collision.y = transformPos.y + collisionPos.y;
+    player.body.collision.x = transformPos.x + player.colOffset.x;
+    player.body.collision.y = transformPos.y + player.colOffset.y;
 }

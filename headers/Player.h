@@ -10,6 +10,7 @@
 struct Player {
     PhysicalObject body;
     Vector2 direction;
+    Vector2 colOffset = {5, 0};
     float speed = 300;
     float gravity = 500;
     float jumpForce = 500;
@@ -21,7 +22,7 @@ void PlayerStart();
 void PlayerEvent(SDL_Event* event);
 void PlayerMove(float deltatime);
 void PlayerRender(SDL_Renderer* renderer);
-void SetPlayerTransform(Vector2 transformPos, Vector2 collisionPos);
+void SetPlayerTransform(Vector2 transformPos);
 
 
 
