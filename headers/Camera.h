@@ -3,6 +3,8 @@
 #include <SDL3/SDL.h>
 
 
+extern SDL_FRect camera;
+
 void CameraMovement();
 
 void RenderTextureWithCamera(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect rect);

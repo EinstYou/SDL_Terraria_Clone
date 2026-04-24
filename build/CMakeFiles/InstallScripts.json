@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/cmake_install.cmake",
-		"C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL/cmake_install.cmake",
-		"C:/Users/uyani/OneDrive/Belgeler/Projects/CPP/SDL_Terraria_Clone/build/vendored/SDL_image/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

@@ -12,7 +12,7 @@ struct Player {
     Vector2 direction;
     Vector2 colOffset = {5, 0};
     float speed = 300;
-    float gravity = 500;
+    float gravity = 1000;
     float jumpForce = 500;
     bool isGrounded = false;
 };

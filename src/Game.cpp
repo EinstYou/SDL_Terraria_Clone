@@ -13,10 +13,10 @@ double deltaTime = 0;
 
 
 void Start(SDL_Renderer* renderer){
+    srand(time(NULL));
     SaveTextures(renderer);
     CreateWorld();
     PlayerStart();
-    srand(time(NULL));
 }
 
 
