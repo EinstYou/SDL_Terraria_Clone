@@ -6,8 +6,13 @@
 
 
 typedef enum Blocks{
+    TEXTURE_GRASS,
     TEXTURE_DIRT,
-    TEXTURE_PLAYER,
+    TEXTURE_STONE,
+
+
+    TEXTURE_PLAYER,// I will destroy later
+
     TEXTURE_COUNT
 }Blocks;
 

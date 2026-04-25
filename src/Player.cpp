@@ -39,7 +39,7 @@ void PlayerMove(float deltatime) {
     const float oldPosX = player.body.transform.x;
     SetPlayerTransform({player.body.transform.x + (player.body.velocity.x * deltatime), player.body.transform.y});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.body.collision, worldTiles[i])){
+        if(IsColliding(player.body.collision, worldTiles[i].rect)){
             SetPlayerTransform({oldPosX, player.body.transform.y});
             player.body.velocity.x = 0;
         }
@@ -49,7 +49,7 @@ void PlayerMove(float deltatime) {
     const float oldPosY = player.body.transform.y;
     SetPlayerTransform({player.body.transform.x, player.body.transform.y + (player.body.velocity.y * deltatime)});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.body.collision, worldTiles[i])){
+        if(IsColliding(player.body.collision, worldTiles[i].rect)){
             SetPlayerTransform({player.body.transform.x, oldPosY});
             player.body.velocity.y = 0;
             player.isGrounded = true;

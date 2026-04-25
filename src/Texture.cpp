@@ -14,6 +14,8 @@ SDL_Texture* CreateTexture(SDL_Renderer* renderer, const char* file){
 
 
  void SaveTextures(SDL_Renderer* renderer){
-    blockTextures[TEXTURE_DIRT] = CreateTexture(renderer, "assets/Tile.png");
+    blockTextures[TEXTURE_GRASS] = CreateTexture(renderer, "assets/Grass.png");
+    blockTextures[TEXTURE_DIRT] = CreateTexture(renderer, "assets/Dirt.png");
+    blockTextures[TEXTURE_STONE] = CreateTexture(renderer, "assets/Stone.png");
     blockTextures[TEXTURE_PLAYER] = CreateTexture(renderer, "assets/PlayerS.png");
  }
