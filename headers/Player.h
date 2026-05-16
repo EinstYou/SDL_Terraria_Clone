@@ -20,9 +20,9 @@ extern Player player;
 
 void PlayerStart();
 void PlayerEvent(SDL_Event* event);
-void PlayerMove(float deltatime);
+void PlayerMove();
 void PlayerRender(SDL_Renderer* renderer);
-void SetPlayerTransform(Vector2 transformPos);
+void SetPlayerTransformWithCollision(Vector2 collisionTransform);
 
 
 

@@ -23,7 +23,7 @@ bool IsColliding(SDL_FRect r1, SDL_FRect r2){
     const float r2Left = r2.x;
     const float r2Right = r2.x + r2.w;
 
-    return r1Top <= r2Bottom && r1Bottom >= r2Top && r1Left <= r2Right && r1Right >= r2Left;
+    return r1Top < r2Bottom && r1Bottom > r2Top && r1Left < r2Right && r1Right > r2Left;
 }
 
 

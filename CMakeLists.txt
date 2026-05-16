@@ -20,6 +20,7 @@ src/Texture.cpp
 src/Player.cpp
 src/World.cpp
 src/Camera.cpp
+src/GameTime.cpp
 )
 
 target_include_directories(Terraria PUBLIC headers)

@@ -2,7 +2,11 @@
 
 #include <SDL3/SDL.h>
 
-float InputDirection(SDL_Scancode positive, SDL_Scancode negative){
+SDL_Event Input::event;
+
+
+
+float Input::InputDirection(SDL_Scancode positive, SDL_Scancode negative){
 
     const bool* keyStates = SDL_GetKeyboardState(NULL);
     float direction = 0;

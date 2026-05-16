@@ -7,31 +7,35 @@
 #include "Texture.h"
 #include "World.h"
 #include "Camera.h"
+#include "GameTime.h"
+bool Game::gameIsRunning = 0;
 
-
-double deltaTime = 0;
-
-
-void Start(SDL_Renderer* renderer){
+void Game::Start(SDL_Renderer* renderer){
+    GameTime::pastFrame = SDL_GetPerformanceCounter();
     srand(time(NULL));
+    gameIsRunning = true;
     SaveTextures(renderer);
     CreateWorld();
     PlayerStart();
 }
 
 
-void GetInputs(SDL_Event* event){
-    PlayerEvent(event);
+void Game::GetInputs(){
+    while(SDL_PollEvent(&Input::event)){
+        if(Input::event.type == SDL_EVENT_QUIT) gameIsRunning = false;
+        PlayerEvent(&Input::event);
+    }
 }
 
-void Update(){
-    PlayerMove(deltaTime);
+void Game::Update(){
+    GameTime::CalculateDeltaTime();
+    PlayerMove();
     CameraMovement();
 }
 
 
 
-void Render(SDL_Renderer* renderer){
+void Game::Render(SDL_Renderer* renderer){
 
     SDL_SetRenderDrawColor(renderer, 100, 200, 255, 255);
     SDL_RenderClear(renderer);

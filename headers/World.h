@@ -10,11 +10,14 @@
 
 struct World{
     float worldTileScale = 32;
-    int worldTileX = 1000;
-    int worldTileY = 500;
+    int worldTileX = 200;
+    int worldTileY = 100;
     int stoneLayer = 3;
     int minY = 7;
 };
+
+extern World world;
+
 
 typedef struct Tile{
     int blockTextureType;

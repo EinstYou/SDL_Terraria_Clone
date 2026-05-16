@@ -1,20 +1,19 @@
-#include <stdio.h>
+#include <iostream>
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include "Game.h"
 
-Uint64 frameEnd = 0;
-Uint64 frameBegin = 0;
 
 int main(int argc, char *argv[]) {
 
     if(!SDL_Init(SDL_INIT_VIDEO)){
-        printf("SDL_Init Error: %s \n", SDL_GetError());
+        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return 1;
     }
 
     SDL_Window* window = SDL_CreateWindow("Hello", 640, 480, 0);
     if(!window){
+        std::cout << "SDL_Window Error: " << SDL_GetError() << std::endl;
         printf("SDL_Window Error: %s \n", SDL_GetError());
         return 1;
     }
@@ -25,21 +24,12 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    bool running = true;
-    Start(renderer);
-    frameBegin = SDL_GetPerformanceCounter();
-    while(running){
-        frameEnd = SDL_GetPerformanceCounter();
-        deltaTime = ((double)frameEnd - (double)frameBegin) / (double)SDL_GetPerformanceFrequency();
-        frameBegin = frameEnd;
-        SDL_Event e;
-        SDL_PollEvent(&e);
-        if(e.type == SDL_EVENT_QUIT) running = false;
-        GetInputs(&e);
+    Game::Start(renderer);
+    while(Game::gameIsRunning){
+        Game::GetInputs();
             
-        
-        Update();
-        Render(renderer);
+        Game::Update();
+        Game::Render(renderer);
     }
 
 

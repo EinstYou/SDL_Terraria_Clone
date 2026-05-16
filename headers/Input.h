@@ -4,7 +4,12 @@
 #include <SDL3/SDL.h>
 
 
-float InputDirection(SDL_Scancode positive, SDL_Scancode negative);
+class Input{
+public:
+    static SDL_Event event;
+    static float InputDirection(SDL_Scancode positive, SDL_Scancode negative);
+};
+
 
 
 #endif

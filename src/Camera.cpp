@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "Player.h"
+#include "World.h"
 
 
 
@@ -29,5 +30,9 @@ void CameraMovement(){
     camera.x = GetOrigin(player.body.transform.x, player.body.transform.w) - (camera.w / 2);
     camera.y = GetOrigin(player.body.transform.y, player.body.transform.h) - (camera.h / 2);
     if(camera.x < 0) camera.x = 0;
+    else if (camera.x + camera.w > world.worldTileScale * world.worldTileX) camera.x = world.worldTileScale * world.worldTileX - camera.w;
+
     if(camera.y < 0) camera.y = 0;
+    else if(camera.y + camera.h > world.worldTileScale * world.worldTileY) camera.y = world.worldTileScale * world.worldTileY - camera.h;
+    
 }

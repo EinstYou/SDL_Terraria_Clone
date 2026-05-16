@@ -5,6 +5,7 @@
 #include "World.h"
 #include "Camera.h"
 #include "vector"
+#include "GameTime.h"
 
 
 
@@ -19,40 +20,46 @@ void PlayerStart(){
     player.body.collision.w = 24;
     player.body.collision.h = 32;
     
-    SetPlayerTransform({100, 0});
+    SetPlayerTransformWithCollision({0, 0});
 }
 
 
 void PlayerEvent(SDL_Event* event){
-    player.direction.x = InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
+    player.direction.x = Input::InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
     if(event->type == SDL_EVENT_KEY_DOWN && event->key.scancode == SDL_SCANCODE_SPACE && player.isGrounded){
         player.body.velocity.y = -player.jumpForce;
         player.isGrounded = false;
     }
 }
 
-void PlayerMove(float deltatime) {
-    player.body.velocity.y += player.gravity * deltatime;
+void PlayerMove() {
+    player.body.velocity.y += player.gravity * GameTime::deltaTime;
     player.body.velocity.x = player.speed * player.direction.x;
 
 
-    const float oldPosX = player.body.transform.x;
-    SetPlayerTransform({player.body.transform.x + (player.body.velocity.x * deltatime), player.body.transform.y});
+    SetPlayerTransformWithCollision({player.body.collision.x + (player.body.velocity.x * GameTime::deltaTime), player.body.collision.y});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.body.collision, worldTiles[i].rect)){
-            SetPlayerTransform({oldPosX, player.body.transform.y});
+        if(IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.x > 0){
+            SetPlayerTransformWithCollision({worldTiles[i].rect.x - player.body.collision.w, player.body.collision.y});
+            player.body.velocity.x = 0;
+        }
+        else if(IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.x < 0){
+            SetPlayerTransformWithCollision({worldTiles[i].rect.x + worldTiles[i].rect.w, player.body.collision.y});
             player.body.velocity.x = 0;
         }
     }
     
 
-    const float oldPosY = player.body.transform.y;
-    SetPlayerTransform({player.body.transform.x, player.body.transform.y + (player.body.velocity.y * deltatime)});
+    SetPlayerTransformWithCollision({player.body.collision.x, player.body.collision.y + (player.body.velocity.y * GameTime::deltaTime)});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.body.collision, worldTiles[i].rect)){
-            SetPlayerTransform({player.body.transform.x, oldPosY});
+        if(IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.y > 0){
+            SetPlayerTransformWithCollision({player.body.collision.x, worldTiles[i].rect.y - player.body.collision.h});
             player.body.velocity.y = 0;
             player.isGrounded = true;
+        }
+        else if (IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.y < 0){
+            SetPlayerTransformWithCollision({player.body.collision.x, worldTiles[i].rect.y + worldTiles[i].rect.h});
+            player.body.velocity.y = 0;
         }
     }
 }
@@ -63,10 +70,10 @@ void PlayerRender(SDL_Renderer* renderer){
     RenderRectWithCamera(renderer, player.body.collision);
 }
 
-void SetPlayerTransform(Vector2 transformPos){
-    player.body.transform.x = transformPos.x;
-    player.body.transform.y = transformPos.y;
+void SetPlayerTransformWithCollision(Vector2 collisionTransform){
+    player.body.collision.x = collisionTransform.x;
+    player.body.collision.y = collisionTransform.y;
 
-    player.body.collision.x = transformPos.x + player.colOffset.x;
-    player.body.collision.y = transformPos.y + player.colOffset.y;
+    player.body.transform.x = collisionTransform.x - player.colOffset.x;
+    player.body.transform.y = collisionTransform.y - player.colOffset.y;
 }

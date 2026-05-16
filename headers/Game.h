@@ -3,15 +3,16 @@
 #include <SDL3/SDL.h>
 
 
-extern double deltaTime;
 
-void GetInputs(SDL_Event* event);
+class Game{
+public:
+    static bool gameIsRunning;
 
-
-
-void Start(SDL_Renderer* renderer);
-void Update();
-void Render(SDL_Renderer* renderer);
+    static void GetInputs();
+    static void Start(SDL_Renderer* renderer);
+    static void Update();
+    static void Render(SDL_Renderer* renderer);
+};
 
 
 
