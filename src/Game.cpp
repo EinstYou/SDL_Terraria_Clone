@@ -14,21 +14,18 @@ SDL_Window* Game::window;
 SDL_Renderer* Game::renderer;
 
 void Game::Start(){
-    GameTime::pastFrame = SDL_GetPerformanceCounter();
+
     srand(time(NULL));
-    gameIsRunning = true;
-    SaveTextures(renderer);
+
+    GameTime::pastFrame = SDL_GetPerformanceCounter();
+    Game::gameIsRunning = true;
+    
+    SaveTextures();
     CreateWorld();
     PlayerStart();
 }
 
 
-void Game::GetInputs(){
-    while(SDL_PollEvent(&Input::event)){
-        if(Input::event.type == SDL_EVENT_QUIT) gameIsRunning = false;
-        PlayerEvent();
-    }
-}
 
 void Game::Update(){
     GameTime::CalculateDeltaTime();

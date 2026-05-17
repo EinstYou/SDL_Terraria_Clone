@@ -19,7 +19,6 @@ struct Player {
 extern Player player;
 
 void PlayerStart();
-void PlayerEvent();
 void PlayerMove();
 void PlayerRender();
 void SetPlayerTransformWithCollision(Vector2 collisionTransform);

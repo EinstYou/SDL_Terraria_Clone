@@ -6,6 +6,7 @@
 
 class Input{
 public:
+    static const bool* keyStates;
     static SDL_Event event;
     static float InputDirection(SDL_Scancode positive, SDL_Scancode negative);
 };

@@ -19,9 +19,9 @@ typedef enum Blocks{
 extern SDL_Texture* blockTextures[TEXTURE_COUNT];
 
 
-SDL_Texture* CreateTexture(SDL_Renderer* renderer, const char* file);
+SDL_Texture* CreateTexture(const char* file);
 
-void SaveTextures(SDL_Renderer* renderer);
+void SaveTextures();
 
 
 

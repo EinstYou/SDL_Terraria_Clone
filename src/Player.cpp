@@ -25,15 +25,14 @@ void PlayerStart(){
 }
 
 
-void PlayerEvent(){
+void PlayerMove() {
+
     player.direction.x = Input::InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
-    if(Input::event.type == SDL_EVENT_KEY_DOWN && Input::event.key.scancode == SDL_SCANCODE_SPACE && player.isGrounded){
+    if(Input::keyStates[SDL_SCANCODE_SPACE]){
         player.body.velocity.y = -player.jumpForce;
         player.isGrounded = false;
     }
-}
 
-void PlayerMove() {
     player.body.velocity.y += player.gravity * GameTime::deltaTime;
     player.body.velocity.x = player.speed * player.direction.x;
 
