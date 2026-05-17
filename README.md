@@ -6,9 +6,6 @@
 
 
 
-I am working on this project for now look like this
-
-
 
 Requirements:
 
