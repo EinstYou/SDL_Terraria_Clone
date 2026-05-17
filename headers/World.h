@@ -30,7 +30,7 @@ typedef struct Tile{
 
 extern std::vector<Tile> worldTiles;
 void CreateWorld();
-void RenderWorld(SDL_Renderer* renderer);
+void RenderWorld();
 
 
 

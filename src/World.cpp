@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include <iostream>
 #include "Physics.h"
+#include "Game.h"
 
 
 World world;
@@ -55,10 +56,10 @@ void CreateWorld(){
     }
 }
 
-void RenderWorld(SDL_Renderer* renderer){
+void RenderWorld(){
 
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(camera, worldTiles[i].rect)) RenderTextureWithCamera(renderer, blockTextures[worldTiles[i].blockTextureType], worldTiles[i].rect);
+        if(IsColliding(camera, worldTiles[i].rect)) RenderTextureWithCamera(Game::renderer, blockTextures[worldTiles[i].blockTextureType], worldTiles[i].rect);
     }
 }
 

@@ -6,36 +6,18 @@
 
 int main(int argc, char *argv[]) {
 
-    if(!SDL_Init(SDL_INIT_VIDEO)){
-        std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
-        return 1;
-    }
+    Game::Initialize();
 
-    SDL_Window* window = SDL_CreateWindow("Hello", 640, 480, 0);
-    if(!window){
-        std::cout << "SDL_Window Error: " << SDL_GetError() << std::endl;
-        printf("SDL_Window Error: %s \n", SDL_GetError());
-        return 1;
-    }
-
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, 0);
-    if(!renderer){
-        printf("SDL_Renderer Error: %s \n", SDL_GetError());
-        return 1;
-    }
-
-    Game::Start(renderer);
+    Game::Start();
     while(Game::gameIsRunning){
         Game::GetInputs();
             
         Game::Update();
-        Game::Render(renderer);
+        Game::Render();
     }
 
 
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    Game::Clean();
     return 0;
 }
 

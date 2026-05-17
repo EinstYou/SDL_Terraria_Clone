@@ -8,10 +8,15 @@ class Game{
 public:
     static bool gameIsRunning;
 
+    static SDL_Window* window;
+    static SDL_Renderer* renderer;
+    static int Initialize();
+    static void Clean();
+
     static void GetInputs();
-    static void Start(SDL_Renderer* renderer);
+    static void Start();
     static void Update();
-    static void Render(SDL_Renderer* renderer);
+    static void Render();
 };
 
 

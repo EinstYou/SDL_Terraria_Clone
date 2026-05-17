@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "vector"
 #include "GameTime.h"
+#include "Game.h"
 
 
 
@@ -24,9 +25,9 @@ void PlayerStart(){
 }
 
 
-void PlayerEvent(SDL_Event* event){
+void PlayerEvent(){
     player.direction.x = Input::InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
-    if(event->type == SDL_EVENT_KEY_DOWN && event->key.scancode == SDL_SCANCODE_SPACE && player.isGrounded){
+    if(Input::event.type == SDL_EVENT_KEY_DOWN && Input::event.key.scancode == SDL_SCANCODE_SPACE && player.isGrounded){
         player.body.velocity.y = -player.jumpForce;
         player.isGrounded = false;
     }
@@ -64,10 +65,10 @@ void PlayerMove() {
     }
 }
 
-void PlayerRender(SDL_Renderer* renderer){
-    RenderTextureWithCamera(renderer, blockTextures[TEXTURE_PLAYER], player.body.transform);
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    RenderRectWithCamera(renderer, player.body.collision);
+void PlayerRender(){
+    RenderTextureWithCamera(Game::renderer, blockTextures[TEXTURE_PLAYER], player.body.transform);
+    SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
+    RenderRectWithCamera(Game::renderer, player.body.collision);
 }
 
 void SetPlayerTransformWithCollision(Vector2 collisionTransform){

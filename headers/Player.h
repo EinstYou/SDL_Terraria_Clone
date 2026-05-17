@@ -19,9 +19,9 @@ struct Player {
 extern Player player;
 
 void PlayerStart();
-void PlayerEvent(SDL_Event* event);
+void PlayerEvent();
 void PlayerMove();
-void PlayerRender(SDL_Renderer* renderer);
+void PlayerRender();
 void SetPlayerTransformWithCollision(Vector2 collisionTransform);
 
 
