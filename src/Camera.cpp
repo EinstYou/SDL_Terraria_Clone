@@ -26,9 +26,9 @@ void RenderRectWithCamera(SDL_Renderer* renderer, SDL_FRect rect){
 }
 
 
-void CameraMovement(){
-    camera.x = GetOrigin(player.body.transform.x, player.body.transform.w) - (camera.w / 2);
-    camera.y = GetOrigin(player.body.transform.y, player.body.transform.h) - (camera.h / 2);
+void CameraMovement(SDL_FRect transform){
+    camera.x = GetOrigin(transform.x, transform.w) - (camera.w / 2);
+    camera.y = GetOrigin(transform.y, transform.h) - (camera.h / 2);
     if(camera.x < 0) camera.x = 0;
     else if (camera.x + camera.w > world.worldTileScale * world.worldTileX) camera.x = world.worldTileScale * world.worldTileX - camera.w;
 

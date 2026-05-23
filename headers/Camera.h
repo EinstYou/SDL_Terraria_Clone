@@ -5,7 +5,7 @@
 
 extern SDL_FRect camera;
 
-void CameraMovement();
+void CameraMovement(SDL_FRect transform);
 
 void RenderTextureWithCamera(SDL_Renderer* renderer, SDL_Texture* texture, SDL_FRect rect);
 

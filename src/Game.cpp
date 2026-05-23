@@ -2,6 +2,7 @@
 #include <Physics.h>
 #include <iostream>
 #include <ctime>
+#include <memory>
 #include "Input.h"
 #include "Player.h"
 #include "Texture.h"
@@ -10,27 +11,42 @@
 #include "GameTime.h"
 
 bool Game::gameIsRunning = 0;
+
+std::vector<std::unique_ptr<GameObject>> Game::gameObjects;
+
 SDL_Window* Game::window;
 SDL_Renderer* Game::renderer;
 
+
 void Game::Start(){
+
+    Player player;
+    
 
     srand(time(NULL));
 
     GameTime::pastFrame = SDL_GetPerformanceCounter();
     Game::gameIsRunning = true;
+
+
+
+    for (const std::unique_ptr<GameObject>& obj : gameObjects) obj.get()->Start();
+
+    
+    
     
     SaveTextures();
     CreateWorld();
-    PlayerStart();
 }
 
 
 
 void Game::Update(){
     GameTime::CalculateDeltaTime();
-    PlayerMove();
-    CameraMovement();
+
+
+    for (const std::unique_ptr<GameObject>& obj : gameObjects) obj.get()->Update();
+    
 }
 
 
@@ -41,7 +57,10 @@ void Game::Render(){
     SDL_RenderClear(Game::renderer);
 
     //Draw Here
-    PlayerRender();
+
+
+    for (const std::unique_ptr<GameObject>& obj : gameObjects) obj.get()->Render();
+    
     RenderWorld();
     SDL_RenderPresent(Game::renderer);
 }
@@ -76,3 +95,6 @@ void Game::Clean(){
     SDL_DestroyWindow(Game::window);
     SDL_Quit();
 }
+
+
+

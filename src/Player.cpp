@@ -11,69 +11,67 @@
 
 
 
-Player player;
+void Player::Start() {
+    transform.w = 32;
+    transform.h = 32;
 
-
-void PlayerStart(){
-    player.body.transform.w = 32;
-    player.body.transform.h = 32;
-
-    player.body.collision.w = 24;
-    player.body.collision.h = 32;
+    collision.w = 24;
+    collision.h = 32;
     
     SetPlayerTransformWithCollision({0, 0});
 }
 
 
-void PlayerMove() {
+void Player::Update() {
 
-    player.direction.x = Input::InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
-    if(Input::keyStates[SDL_SCANCODE_SPACE]){
-        player.body.velocity.y = -player.jumpForce;
-        player.isGrounded = false;
+    direction.x = Input::InputDirection(SDL_SCANCODE_D, SDL_SCANCODE_A);
+    if(Input::keyStates[SDL_SCANCODE_SPACE] && isGrounded){
+        velocity.y = -jumpForce;
+        isGrounded = false;
     }
 
-    player.body.velocity.y += player.gravity * GameTime::deltaTime;
-    player.body.velocity.x = player.speed * player.direction.x;
+    velocity.y += gravity * GameTime::deltaTime;
+    velocity.x = speed * direction.x;
 
 
-    SetPlayerTransformWithCollision({player.body.collision.x + (player.body.velocity.x * GameTime::deltaTime), player.body.collision.y});
+    SetPlayerTransformWithCollision({collision.x + (velocity.x * GameTime::deltaTime), collision.y});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.x > 0){
-            SetPlayerTransformWithCollision({worldTiles[i].rect.x - player.body.collision.w, player.body.collision.y});
-            player.body.velocity.x = 0;
+        if(IsColliding(collision, worldTiles[i].rect) && velocity.x > 0){
+            SetPlayerTransformWithCollision({worldTiles[i].rect.x - collision.w, collision.y});
+            velocity.x = 0;
         }
-        else if(IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.x < 0){
-            SetPlayerTransformWithCollision({worldTiles[i].rect.x + worldTiles[i].rect.w, player.body.collision.y});
-            player.body.velocity.x = 0;
+        else if(IsColliding(collision, worldTiles[i].rect) && velocity.x < 0){
+            SetPlayerTransformWithCollision({worldTiles[i].rect.x + worldTiles[i].rect.w, collision.y});
+            velocity.x = 0;
         }
     }
     
 
-    SetPlayerTransformWithCollision({player.body.collision.x, player.body.collision.y + (player.body.velocity.y * GameTime::deltaTime)});
+    SetPlayerTransformWithCollision({collision.x, collision.y + (velocity.y * GameTime::deltaTime)});
     for(int i = 0; i < worldTiles.size(); i++){
-        if(IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.y > 0){
-            SetPlayerTransformWithCollision({player.body.collision.x, worldTiles[i].rect.y - player.body.collision.h});
-            player.body.velocity.y = 0;
-            player.isGrounded = true;
+        if(IsColliding(collision, worldTiles[i].rect) && velocity.y > 0){
+            SetPlayerTransformWithCollision({
+                collision.x, worldTiles[i].rect.y - collision.h});
+            velocity.y = 0;
+            isGrounded = true;
         }
-        else if (IsColliding(player.body.collision, worldTiles[i].rect) && player.body.velocity.y < 0){
-            SetPlayerTransformWithCollision({player.body.collision.x, worldTiles[i].rect.y + worldTiles[i].rect.h});
-            player.body.velocity.y = 0;
+        else if (IsColliding(collision, worldTiles[i].rect) && velocity.y < 0){
+            SetPlayerTransformWithCollision({collision.x, worldTiles[i].rect.y + worldTiles[i].rect.h});
+            velocity.y = 0;
         }
     }
 }
 
-void PlayerRender(){
-    RenderTextureWithCamera(Game::renderer, blockTextures[TEXTURE_PLAYER], player.body.transform);
+void Player::Render(){
+    RenderTextureWithCamera(Game::renderer, blockTextures[TEXTURE_PLAYER], Player::transform);
     SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
-    RenderRectWithCamera(Game::renderer, player.body.collision);
+    RenderRectWithCamera(Game::renderer, collision);
 }
 
-void SetPlayerTransformWithCollision(Vector2 collisionTransform){
-    player.body.collision.x = collisionTransform.x;
-    player.body.collision.y = collisionTransform.y;
+void Player::SetPlayerTransformWithCollision(Vector2 collisionTransform){
+    collision.x = collisionTransform.x;
+    collision.y = collisionTransform.y;
 
-    player.body.transform.x = collisionTransform.x - player.colOffset.x;
-    player.body.transform.y = collisionTransform.y - player.colOffset.y;
+    transform.x = collisionTransform.x - colOffset.x;
+    transform.y = collisionTransform.y - colOffset.y;
 }
